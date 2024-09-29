@@ -1,3 +1,8 @@
+// Toggle the visibility of the sidebar on mobile devices
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
+}
 
 document.querySelectorAll('.title-link').forEach(link => {
     link.addEventListener('click', function(event) {
@@ -14,7 +19,7 @@ document.querySelectorAll('.title-link').forEach(link => {
 
 // Function to normalize a string by removing accents and diacritics
 function normalizeString(str) {
-    return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 
 // Function to filter titles based on search input
@@ -44,5 +49,3 @@ function filterTitles() {
         }
     });
 }
-
-        
